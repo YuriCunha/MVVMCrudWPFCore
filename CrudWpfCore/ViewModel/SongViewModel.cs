@@ -1,4 +1,6 @@
-﻿using CrudWpfCore.Models;
+﻿using CrudWpfCore.Data;
+using CrudWpfCore.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -28,98 +30,24 @@ namespace CrudWpfCore.ViewModel
         public SongViewModel()
         {
             Songs = new ObservableCollection<Song>();
-            Songs.Add(new Song()
-            {
-                Id = 1,
-                Title = "Mama",
-                Album = "Catra e Valeska So sucessos",
-                Artist = "Valeska Poposuda",
-                Gender = Gender.Female
-            });
-            Songs.Add(new Song()
-            {
-                Id = 1,
-                Title = "Mama",
-                Album = "Catra e Valeska So sucessos",
-                Artist = "Valeska Poposuda",
-                Gender = Gender.Female
-            });
+            using (var db = new SongDbContext())              
+                foreach (var song in db.Songs)
+                    Songs.Add(SongConverter(song));
 
             SelectedSong = Songs.FirstOrDefault();
         }
 
-        public class DeleteCommand : BaseCommand
-        {
+        public static Song SongConverter(SongDb songDb) =>       
+             new Song
+             {
+                Id = songDb.Id,
+                Title = songDb.Title,
+                Artist = songDb.Artist,
+                Album = songDb.Album,
+                Genre = songDb.Genre,
+             };
+        
 
-            public override bool CanExecute(object parameter)
-            {
-                SongViewModel viewModel = parameter as SongViewModel;
-                return viewModel != null && viewModel.SelectedSong != null;
-            }
-
-            public override void Execute(object parameter)
-            {
-                var viewModel = (SongViewModel)parameter;
-                viewModel.Songs.Remove(viewModel.SelectedSong);
-                viewModel.SelectedSong = viewModel.Songs.FirstOrDefault();
-            }
-        }
-
-        public class NewCommand : BaseCommand
-        {
-
-            public override bool CanExecute(object parameter) =>
-                parameter is SongViewModel;
-            
-
-
-            public override void Execute(object parameter)
-            {
-                var viewModel = (SongViewModel)parameter;
-                var song = new Song();
-                var maxId = 0;
-                if (viewModel.Songs.Any())
-                    maxId = viewModel.Songs.Max(s => s.Id);
-                song.Id = maxId;
-                var sw = new SongWindow();
-                sw.DataContext = song;
-                sw.ShowDialog();
-
-                if (sw.DialogResult.HasValue && sw.DialogResult.Value)
-                {
-                    viewModel.Songs.Add(song);
-                    viewModel.SelectedSong = song;
-
-                }
-            }
-        }
-
-        public class EditCommand : BaseCommand
-        {
-            public override bool CanExecute(object parameter)
-            {
-                var viewModel = parameter as SongViewModel;
-                return viewModel != null && viewModel.SelectedSong != null;
-            }
-
-            public override void Execute(object parameter)
-            {
-                var viewModel = (SongViewModel)parameter;
-                var cloneSong = (Song)viewModel.SelectedSong.Clone();
-                var sw = new SongWindow();
-                sw.DataContext = cloneSong;
-                sw.ShowDialog();
-
-                if (sw.DialogResult.HasValue && sw.DialogResult.Value)
-                {
-                    viewModel.SelectedSong.Title = cloneSong.Title;
-                    viewModel.SelectedSong.Artist = cloneSong.Artist;
-                    viewModel.SelectedSong.Album = cloneSong.Album;
-                    viewModel.SelectedSong.Gender = cloneSong.Gender;
-                    
-                }
-            }
-        }
     }
 
 }

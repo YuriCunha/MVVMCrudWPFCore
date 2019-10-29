@@ -33,11 +33,11 @@ namespace CrudWpfCore.Models
             set => SetField(ref _album, value);
 
         }
-        private Gender _gender;
-        public Gender Gender 
+        private string _genre;
+        public string Genre 
         {
-            get => _gender;
-            set => SetField(ref _gender, value);
+            get => _genre;
+            set => SetField(ref _genre, value);
         }
 
         public object Clone() =>

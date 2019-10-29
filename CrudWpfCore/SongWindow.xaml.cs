@@ -22,7 +22,7 @@ namespace CrudWpfCore
         public SongWindow()
         {
             InitializeComponent();
-            GenderComboBox.ItemsSource = Enum.GetValues(typeof(Gender));
+            
 
         }
         private void OKButton_Click(object sender, RoutedEventArgs e)

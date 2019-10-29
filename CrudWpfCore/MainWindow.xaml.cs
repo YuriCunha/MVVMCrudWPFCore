@@ -25,8 +25,13 @@ namespace CrudWpfCore
         {
             InitializeComponent();
             DataContext = new SongViewModel();
+
+            
+
+
+
         }
 
-     
+    
     }
 }

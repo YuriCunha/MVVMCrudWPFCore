@@ -1,0 +1,8 @@
+C:\Users\yuris\source\repos\CrudWpfCore\CrudWpfCore.Data\bin\Debug\netcoreapp3.0\CrudWpfCore.Data.deps.json
+C:\Users\yuris\source\repos\CrudWpfCore\CrudWpfCore.Data\bin\Debug\netcoreapp3.0\CrudWpfCore.Data.dll
+C:\Users\yuris\source\repos\CrudWpfCore\CrudWpfCore.Data\obj\Debug\netcoreapp3.0\CrudWpfCore.Data.csprojAssemblyReference.cache
+C:\Users\yuris\source\repos\CrudWpfCore\CrudWpfCore.Data\obj\Debug\netcoreapp3.0\CrudWpfCore.Data.AssemblyInfoInputs.cache
+C:\Users\yuris\source\repos\CrudWpfCore\CrudWpfCore.Data\obj\Debug\netcoreapp3.0\CrudWpfCore.Data.AssemblyInfo.cs
+C:\Users\yuris\source\repos\CrudWpfCore\CrudWpfCore.Data\bin\Debug\netcoreapp3.0\CrudWpfCore.Data.pdb
+C:\Users\yuris\source\repos\CrudWpfCore\CrudWpfCore.Data\obj\Debug\netcoreapp3.0\CrudWpfCore.Data.dll
+C:\Users\yuris\source\repos\CrudWpfCore\CrudWpfCore.Data\obj\Debug\netcoreapp3.0\CrudWpfCore.Data.pdb

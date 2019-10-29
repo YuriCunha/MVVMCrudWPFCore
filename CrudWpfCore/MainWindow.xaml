@@ -32,7 +32,7 @@
             <DataGrid ItemsSource="{Binding Songs}"
                       AutoGenerateColumns="False" 
                       IsReadOnly="True"
-                      SelectedItem="{Binding SelectedSong}">
+                      SelectedItem="{Binding SelectedSong}" Height="389">
                 <DataGrid.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -41,12 +41,20 @@
                         <TranslateTransform/>
                     </TransformGroup>
                 </DataGrid.RenderTransform>
+                
                 <DataGrid.Columns>
+                
+
+
+
+                    
+                
+                    
                     <DataGridTextColumn Header="Id" Binding="{Binding Id}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Title" Binding="{Binding Title}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Artist" Binding="{Binding Artist}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Album" Binding="{Binding Album}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Sex" Binding="{Binding Gender}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Genre" Binding="{Binding Genre}"></DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
 

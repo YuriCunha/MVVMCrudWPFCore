@@ -17,8 +17,8 @@
             <TextBox Text="{Binding Artist}"/>
             <TextBlock Text="Album"/>
             <TextBox Text="{Binding Album}"/>
-            <TextBlock Text="Sex"/>
-            <ComboBox Name="GenderComboBox" Text="{Binding Gender}"/>
+            <TextBlock Text="Genre"/>
+            <TextBox Text="{Binding Genre}"/>
             
            
             <Grid>
